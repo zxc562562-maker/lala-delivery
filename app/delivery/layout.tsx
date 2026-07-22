@@ -6,9 +6,8 @@ export const dynamic = 'force-dynamic';
 
 export default async function DeliveryLayout({ children }: { children: React.ReactNode }) {
   const serviceUrl = process.env.NEXT_PUBLIC_SERVICE_URL!;
-  const deliveryUrl = process.env.NEXT_PUBLIC_DELIVERY_URL!;
   const me = await getAccess();
-  if (!me) redirect(`${serviceUrl}/login?next=${encodeURIComponent(`${deliveryUrl}/delivery`)}`);
+  if (!me) redirect(`/login?next=${encodeURIComponent('/delivery')}`);
   if (me.role !== 'delivery' && !me.isApprover) redirect(serviceUrl);
   return (
     <>
