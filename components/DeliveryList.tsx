@@ -9,7 +9,7 @@ import { getDeliverySlotLabel } from '@lala/shared/lib/delivery';
 const LABEL: Record<Fulfillment, string> = {
   ORDERED: '주문결제', PRE_INSPECTING: '상품검수중', READY: '배송대기중', SHIPPED: '배송중',
   DELIVERED: '배송완료', RETURN_REQUESTED: '반납접수 요청됨', RETURN_INSPECTING: '반납검수중', REFUNDED: '완료',
-  PRE_INSPECT_ISSUE: '검수 보류', MISDELIVERED: '오배송', RETURN_ISSUE: '반납 이슈 확인중',
+  PRE_INSPECT_ISSUE: '검수 보류', MISDELIVERED: '오배송', RETURN_ISSUE: '반납 이슈 확인중', CANCELLED: '취소됨',
 };
 
 // 배송기사가 진행시킬 다음 단계 (정상 흐름만 — 문제 발생 시엔 관리자 화면에서 처리)
