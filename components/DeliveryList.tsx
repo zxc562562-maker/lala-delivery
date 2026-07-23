@@ -8,7 +8,8 @@ import { getDeliverySlotLabel } from '@lala/shared/lib/delivery';
 
 const LABEL: Record<Fulfillment, string> = {
   ORDERED: '주문결제', PRE_INSPECTING: '상품검수중', READY: '배송대기중', SHIPPED: '배송중',
-  DELIVERED: '배송완료', RETURN_REQUESTED: '반납접수 요청됨', RETURN_INSPECTING: '반납검수중', REFUNDED: '완료',
+  DELIVERED: '배송완료', RETURN_REQUESTED: '반납접수 요청됨', RETURN_INSPECTING: '반납검수중', REFUNDED: '반납 완료',
+  DEPOSIT_REFUNDED: '보증금 환불 완료',
   PRE_INSPECT_ISSUE: '검수 보류', MISDELIVERED: '오배송', RETURN_ISSUE: '반납 이슈 확인중', CANCELLED: '취소됨',
 };
 
@@ -21,7 +22,7 @@ const NEXT: Partial<Record<Fulfillment, { to: Fulfillment; label: string }>> = {
   SHIPPED: { to: 'DELIVERED', label: '배송 완료' },
   DELIVERED: { to: 'RETURN_INSPECTING', label: '반납검수 시작' },
   RETURN_REQUESTED: { to: 'RETURN_INSPECTING', label: '반납검수 시작' },
-  RETURN_INSPECTING: { to: 'REFUNDED', label: '검수 완료(보증금 환불)' },
+  RETURN_INSPECTING: { to: 'REFUNDED', label: '검수 완료(반납 완료)' },
 };
 
 export default function DeliveryList({ orders }: { orders: OrderRow[] }) {
